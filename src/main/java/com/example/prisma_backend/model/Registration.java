@@ -2,6 +2,7 @@ package com.example.prisma_backend.model;
 
 import jakarta.persistence.*;
 
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.UUID;
 
@@ -17,12 +18,12 @@ public class Registration {
     @JoinColumn(name = "id_user")
     private User user;
 
-    private Date registrationDate;
+    private LocalDate registrationDate;
     private String status;
 
     public Registration() { }
 
-    public Registration(UUID idRegistration, User user, Date registrationDate, String status) {
+    public Registration(UUID idRegistration, User user, LocalDate registrationDate, String status) {
         this.idRegistration = idRegistration;
         this.user = user;
         this.registrationDate = registrationDate;
@@ -37,9 +38,9 @@ public class Registration {
 
     public void setUser(User user) { this.user = user; }
 
-    public Date getRegistrationDate() { return registrationDate; }
+    public LocalDate getRegistrationDate() { return registrationDate; }
 
-    public void setRegistrationDate(Date registrationDate) { this.registrationDate = registrationDate; }
+    public void setRegistrationDate(LocalDate registrationDate) { this.registrationDate = registrationDate; }
 
     public String getStatus() { return status; }
 

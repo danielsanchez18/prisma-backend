@@ -2,6 +2,7 @@ package com.example.prisma_backend.model;
 
 import jakarta.persistence.*;
 
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.UUID;
 
@@ -19,12 +20,12 @@ public class Notification {
 
     private String title;
     private String message;
-    private Date creationDate;
+    private LocalDate creationDate;
     private boolean revised;
 
     public Notification() { }
 
-    public Notification(UUID idNotification, User user, String title, String message, Date creationDate, boolean revised) {
+    public Notification(UUID idNotification, User user, String title, String message, LocalDate creationDate, boolean revised) {
         this.idNotification = idNotification;
         this.user = user;
         this.title = title;
@@ -49,9 +50,9 @@ public class Notification {
 
     public void setMessage(String message) { this.message = message; }
 
-    public Date getCreationDate() { return creationDate; }
+    public LocalDate getCreationDate() { return creationDate; }
 
-    public void setCreationDate(Date creationDate) { this.creationDate = creationDate; }
+    public void setCreationDate(LocalDate creationDate) { this.creationDate = creationDate; }
 
     public boolean isRevised() { return revised; }
 

@@ -1,7 +1,11 @@
 package com.example.prisma_backend.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
+import java.time.LocalDate;
+import java.util.Date;
 import java.util.List;
 
 @Entity
@@ -14,12 +18,14 @@ public class Teacher {
 
     @OneToOne
     @JoinColumn(name = "id_user")
+    @JsonBackReference
     private User user;
 
     @ManyToOne
     @JoinColumn(name = "id_speciality")
     private Speciality speciality;
 
+    private LocalDate entryDate;
     private String password;
     private String profile;
 
@@ -28,10 +34,11 @@ public class Teacher {
 
     public Teacher() { }
 
-    public Teacher(String idTeacher, User user, Speciality speciality, String password, String profile, List<Class> classes) {
+    public Teacher(String idTeacher, User user, Speciality speciality, LocalDate entryDate, String password, String profile, List<Class> classes) {
         this.idTeacher = idTeacher;
         this.user = user;
         this.speciality = speciality;
+        this.entryDate = entryDate;
         this.password = password;
         this.profile = profile;
         this.classes = classes;
@@ -39,7 +46,9 @@ public class Teacher {
 
     public String getIdTeacher() { return idTeacher; }
 
-    public void setIdTeacher(String idTeacher) { }
+    public void setIdTeacher(String idTeacher) {
+        this.idTeacher = idTeacher;
+    }
 
     public User getUser() { return user; }
 
@@ -48,6 +57,10 @@ public class Teacher {
     public Speciality getSpeciality() { return speciality; }
 
     public void setSpeciality(Speciality speciality) { this.speciality = speciality; }
+
+    public LocalDate getEntryDate() { return entryDate; }
+
+    public void setEntryDate(LocalDate entryDate) { this.entryDate = entryDate; }
 
     public String getPassword() { return password; }
 

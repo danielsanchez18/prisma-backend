@@ -3,6 +3,7 @@ package com.example.prisma_backend.model;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
 
@@ -25,7 +26,7 @@ public class Student {
     private String section;
     private String studyLevel;
     private String shift;
-    private Date entryDate;
+    private LocalDate entryDate;
     private boolean paymentStatus;
 
     @OneToMany(mappedBy = "student", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
@@ -36,7 +37,7 @@ public class Student {
 
     public Student() { }
 
-    public Student(String idStudent, User user, String password, String profile, Long grade, String section, String studyLevel, String shift, Date entryDate, boolean paymentStatus, List<StudentClass> classAssignments, List<Qualification> qualifications) {
+    public Student(String idStudent, User user, String password, String profile, Long grade, String section, String studyLevel, String shift, LocalDate entryDate, boolean paymentStatus, List<StudentClass> classAssignments, List<Qualification> qualifications) {
         this.idStudent = idStudent;
         this.user = user;
         this.password = password;
@@ -83,9 +84,9 @@ public class Student {
 
     public void setShift(String shift) { this.shift = shift; }
 
-    public Date getEntryDate() { return entryDate; }
+    public LocalDate getEntryDate() { return entryDate; }
 
-    public void setEntryDate(Date entryDate) { this.entryDate = entryDate; }
+    public void setEntryDate(LocalDate entryDate) { this.entryDate = entryDate; }
 
     public boolean isPaymentStatus() { return paymentStatus; }
 

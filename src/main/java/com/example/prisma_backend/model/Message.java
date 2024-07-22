@@ -2,6 +2,7 @@ package com.example.prisma_backend.model;
 
 import jakarta.persistence.*;
 
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.UUID;
 
@@ -23,14 +24,13 @@ public class Message {
 
     private String title;
     private String content;
-    private Date sentDate;
+    private LocalDate sentDate;
     private boolean revised;
     private String messageType;
 
-
     public Message() { }
 
-    public Message(UUID idMessage, User sender, User receiver, String title, String content, Date sentDate, boolean revised, String messageType) {
+    public Message(UUID idMessage, User sender, User receiver, String title, String content, LocalDate sentDate, boolean revised, String messageType) {
         this.idMessage = idMessage;
         this.sender = sender;
         this.receiver = receiver;
@@ -61,9 +61,9 @@ public class Message {
 
     public void setContent(String content) { this.content = content; }
 
-    public Date getSentDate() { return sentDate; }
+    public LocalDate getSentDate() { return sentDate; }
 
-    public void setSentDate(Date sentDate) { this.sentDate = sentDate; }
+    public void setSentDate(LocalDate sentDate) { this.sentDate = sentDate; }
 
     public boolean isRevised() { return revised; }
 

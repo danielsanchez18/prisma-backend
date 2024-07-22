@@ -22,7 +22,9 @@ public class Applicant {
 
     public String getIdApplicant() { return idApplicant; }
 
-    public void setIdApplicant(String idApplicant) { }
+    public void setIdApplicant(String idApplicant) {
+        this.idApplicant = idApplicant;
+    }
 
     public User getUser() { return user; }
 

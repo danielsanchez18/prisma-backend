@@ -49,7 +49,7 @@ public class User {
 
     public User() { }
 
-    public User(UUID idUser, String type, String dni, String name, String lastName, String email, String phone, Date birthDate, boolean active, Admin admin, Student student, Teacher teacher, Applicant applicant, List<Registration> registrations, List<Notification> notifications, List<Message> sentMessages, List<Message> receivedMessages) {
+    public User(UUID idUser, String type, String dni, String name, String lastName, String email, String phone, Date birthDate, boolean active) {
         this.idUser = idUser;
         this.type = type;
         this.dni = dni;
@@ -59,14 +59,6 @@ public class User {
         this.phone = phone;
         this.birthDate = birthDate;
         this.active = active;
-        this.admin = admin;
-        this.student = student;
-        this.teacher = teacher;
-        this.applicant = applicant;
-        this.registrations = registrations;
-        this.notifications = notifications;
-        this.sentMessages = sentMessages;
-        this.receivedMessages = receivedMessages;
     }
 
     public UUID getIdUser() { return idUser; }
